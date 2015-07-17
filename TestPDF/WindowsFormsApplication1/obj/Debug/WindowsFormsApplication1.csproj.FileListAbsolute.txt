@@ -1,3 +1,0 @@
-C:\Users\sasho\Documents\Visual Studio 2015\Projects\TestPDF\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
-C:\Users\sasho\Documents\GitHub\TestPDF\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
-C:\Users\sasho\Documents\GitHub\Initial\TestPDF\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
