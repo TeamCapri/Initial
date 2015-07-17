@@ -25,7 +25,7 @@ namespace _03.GeneratePdfReport
         private void button1_Click(object sender, EventArgs e)
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\sasho\\Desktop\\Sales_Report.pdf", FileMode.Create));
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("Sales_Report.pdf", FileMode.Create));
             doc.Open();
          
             Paragraph paragraph = new Paragraph("Test Results.");
