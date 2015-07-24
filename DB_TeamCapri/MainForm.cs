@@ -19,6 +19,7 @@ namespace DB_TeamCapri
         public MainForm()
         {
             InitializeComponent();
+            SetVisualSettings();
         }
 
         private String createFileDialog(String fileFilter, TextBox textBox)
@@ -158,6 +159,15 @@ namespace DB_TeamCapri
 
             //
 
+        }
+
+        private void SetVisualSettings()
+        {
+            if (this.BackgroundImage != null)
+            {
+                var bm = new Bitmap(this.BackgroundImage, new Size(this.Width, this.Height));
+                this.BackgroundImage = bm;
+            }
         }
     }
 }

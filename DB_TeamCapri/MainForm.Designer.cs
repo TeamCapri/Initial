@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.insertIntoMssql = new System.Windows.Forms.Button();
             this.oracleToMssqlCheckbox = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.ZipToMssqlBrowse = new System.Windows.Forms.Button();
@@ -41,20 +43,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.xmlToMssql = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.XMLBrowse = new System.Windows.Forms.Button();
             this.mssqlToMysql = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.toJSONMongo = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.endDateJSON = new System.Windows.Forms.DateTimePicker();
             this.startDateJSON = new System.Windows.Forms.DateTimePicker();
-            this.insertIntoMssql = new System.Windows.Forms.Button();
-            this.xmlToMssql = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.chooseDir = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -79,6 +80,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Problem 2";
+            // 
+            // insertIntoMssql
+            // 
+            this.insertIntoMssql.Location = new System.Drawing.Point(214, 74);
+            this.insertIntoMssql.Name = "insertIntoMssql";
+            this.insertIntoMssql.Size = new System.Drawing.Size(75, 23);
+            this.insertIntoMssql.TabIndex = 4;
+            this.insertIntoMssql.Text = "Execute";
+            this.insertIntoMssql.UseVisualStyleBackColor = true;
+            this.insertIntoMssql.Click += new System.EventHandler(this.insertIntoMssql_Click);
             // 
             // oracleToMssqlCheckbox
             // 
@@ -201,6 +212,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Problem 6";
             // 
+            // xmlToMssql
+            // 
+            this.xmlToMssql.Location = new System.Drawing.Point(22, 74);
+            this.xmlToMssql.Name = "xmlToMssql";
+            this.xmlToMssql.Size = new System.Drawing.Size(75, 23);
+            this.xmlToMssql.TabIndex = 2;
+            this.xmlToMssql.Text = "Load";
+            this.xmlToMssql.UseVisualStyleBackColor = true;
+            this.xmlToMssql.Click += new System.EventHandler(this.xmlToMssql_Click);
+            // 
             // textBox2
             // 
             this.textBox2.Enabled = false;
@@ -248,6 +269,15 @@
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Problem 8";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(95, 37);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Execute";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
@@ -305,35 +335,6 @@
             this.startDateJSON.Size = new System.Drawing.Size(148, 20);
             this.startDateJSON.TabIndex = 0;
             // 
-            // insertIntoMssql
-            // 
-            this.insertIntoMssql.Location = new System.Drawing.Point(214, 74);
-            this.insertIntoMssql.Name = "insertIntoMssql";
-            this.insertIntoMssql.Size = new System.Drawing.Size(75, 23);
-            this.insertIntoMssql.TabIndex = 4;
-            this.insertIntoMssql.Text = "Execute";
-            this.insertIntoMssql.UseVisualStyleBackColor = true;
-            this.insertIntoMssql.Click += new System.EventHandler(this.insertIntoMssql_Click);
-            // 
-            // xmlToMssql
-            // 
-            this.xmlToMssql.Location = new System.Drawing.Point(22, 74);
-            this.xmlToMssql.Name = "xmlToMssql";
-            this.xmlToMssql.Size = new System.Drawing.Size(75, 23);
-            this.xmlToMssql.TabIndex = 2;
-            this.xmlToMssql.Text = "Load";
-            this.xmlToMssql.UseVisualStyleBackColor = true;
-            this.xmlToMssql.Click += new System.EventHandler(this.xmlToMssql_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(95, 37);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Execute";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // chooseDir
             // 
             this.chooseDir.Location = new System.Drawing.Point(19, 22);
@@ -367,6 +368,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DB_TeamCapri.Properties.Resources.FormBackground;
             this.ClientSize = new System.Drawing.Size(722, 554);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
@@ -375,6 +377,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Team Capri";
             this.groupBox1.ResumeLayout(false);
