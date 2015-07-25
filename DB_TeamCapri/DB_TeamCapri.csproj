@@ -77,7 +77,8 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="FormMainEntry.cs" />
+    <Compile Include="Problems\XmlWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -108,7 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DBs\" />
-    <Folder Include="Problems\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FormBackground.jpg" />
