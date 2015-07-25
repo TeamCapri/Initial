@@ -7,20 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Supermarket.Data
+namespace Taxes.SQLite.Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Sale
+    public partial class ProductTax
     {
-        public int Id { get; set; }
-        public System.DateTime SaledOn { get; set; }
-        public int SupermarketId { get; set; }
-        public int ProductId { get; set; }
-        public int Quantity { get; set; }
-    
-        public virtual Product Product { get; set; }
-        public virtual Supermarket Supermarket { get; set; }
+        public long Id { get; set; }
+        public string ProductName { get; set; }
+        public double TaxPercent { get; set; }
     }
 }

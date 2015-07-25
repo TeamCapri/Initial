@@ -49,7 +49,7 @@
             this.mssqlToMysql = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.sqliteMysql = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.toJSONMongo = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -262,7 +262,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button1);
+            this.groupBox5.Controls.Add(this.sqliteMysql);
             this.groupBox5.Location = new System.Drawing.Point(374, 217);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(326, 76);
@@ -270,14 +270,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Problem 8";
             // 
-            // button1
+            // sqliteMysql
             // 
-            this.button1.Location = new System.Drawing.Point(95, 37);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Execute";
-            this.button1.UseVisualStyleBackColor = true;
+            this.sqliteMysql.Location = new System.Drawing.Point(95, 37);
+            this.sqliteMysql.Name = "sqliteMysql";
+            this.sqliteMysql.Size = new System.Drawing.Size(75, 23);
+            this.sqliteMysql.TabIndex = 0;
+            this.sqliteMysql.Text = "Execute";
+            this.sqliteMysql.UseVisualStyleBackColor = true;
+            this.sqliteMysql.Click += new System.EventHandler(this.sqliteMysql_Click);
             // 
             // groupBox6
             // 
@@ -424,7 +425,7 @@
         private System.Windows.Forms.CheckBox oracleToMssqlCheckbox;
         private System.Windows.Forms.Button insertIntoMssql;
         private System.Windows.Forms.Button xmlToMssql;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button sqliteMysql;
         private System.Windows.Forms.Button chooseDir;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox groupBox7;

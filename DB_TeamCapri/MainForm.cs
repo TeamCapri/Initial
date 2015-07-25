@@ -1,12 +1,15 @@
-﻿using System;
+﻿using SalesSystem.MySQL.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Taxes.SQLite.Data;
 
 namespace DB_TeamCapri
 {
@@ -20,6 +23,9 @@ namespace DB_TeamCapri
         {
             InitializeComponent();
             SetVisualSettings();
+
+            string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\DBs";
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
         }
 
         private String createFileDialog(String fileFilter, TextBox textBox)
@@ -169,5 +175,22 @@ namespace DB_TeamCapri
                 this.BackgroundImage = bm;
             }
         }
+
+        private void sqliteMysql_Click(object sender, EventArgs e)
+        {
+            var taxes = new TaxesEntities();
+            var mysql = new MySQLContext(); 
+            
+            //var c1 = this.mysql.Towns.Count();
+            var c = taxes.ProductTaxes.Count();
+            var c2 = mysql.Towns.Count();
+            textBox3.Text = (c+c2).ToString();
+            //var sales = mysql.Sales.Select(s => new
+            //{
+                
+            //});
+        }
+
+
     }
 }
