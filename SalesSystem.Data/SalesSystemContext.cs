@@ -1,13 +1,11 @@
-using SalesSystem.Data.Migrations;
+
 
 namespace SalesSystem.Data
     {
-    using System;
+    using SalesSystem.Data.Migrations;
     using System.Data.Entity;
     using SalesSystem.Model;
-
-    using System.Linq;
-
+    
     public class SalesSystemContext : DbContext
         {
         // Your context has been configured to use a 'SalesSystemContext' connection string from your application's 
