@@ -49,7 +49,7 @@
             this.mssqlToMysql = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.sqliteMysql = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.toJSONMongo = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -70,20 +70,22 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.Controls.Add(this.insertIntoMssql);
             this.groupBox1.Controls.Add(this.oracleToMssqlCheckbox);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.ZipToMssqlBrowse);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(326, 119);
+            this.groupBox1.Size = new System.Drawing.Size(342, 119);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Problem 2";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // insertIntoMssql
             // 
-            this.insertIntoMssql.Location = new System.Drawing.Point(214, 74);
+            this.insertIntoMssql.Location = new System.Drawing.Point(6, 90);
             this.insertIntoMssql.Name = "insertIntoMssql";
             this.insertIntoMssql.Size = new System.Drawing.Size(75, 23);
             this.insertIntoMssql.TabIndex = 4;
@@ -94,7 +96,7 @@
             // oracleToMssqlCheckbox
             // 
             this.oracleToMssqlCheckbox.AutoSize = true;
-            this.oracleToMssqlCheckbox.Location = new System.Drawing.Point(32, 25);
+            this.oracleToMssqlCheckbox.Location = new System.Drawing.Point(6, 19);
             this.oracleToMssqlCheckbox.Name = "oracleToMssqlCheckbox";
             this.oracleToMssqlCheckbox.Size = new System.Drawing.Size(109, 17);
             this.oracleToMssqlCheckbox.TabIndex = 3;
@@ -105,16 +107,16 @@
             // textBox1
             // 
             this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(32, 48);
+            this.textBox1.Location = new System.Drawing.Point(6, 48);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(257, 20);
+            this.textBox1.Size = new System.Drawing.Size(249, 20);
             this.textBox1.TabIndex = 2;
             // 
             // ZipToMssqlBrowse
             // 
-            this.ZipToMssqlBrowse.Location = new System.Drawing.Point(214, 19);
+            this.ZipToMssqlBrowse.Location = new System.Drawing.Point(261, 46);
             this.ZipToMssqlBrowse.Name = "ZipToMssqlBrowse";
-            this.ZipToMssqlBrowse.Size = new System.Drawing.Size(75, 23);
+            this.ZipToMssqlBrowse.Size = new System.Drawing.Size(75, 22);
             this.ZipToMssqlBrowse.TabIndex = 1;
             this.ZipToMssqlBrowse.Text = "Browse ...";
             this.ZipToMssqlBrowse.UseVisualStyleBackColor = true;
@@ -122,13 +124,14 @@
             // 
             // startDatePdfXml
             // 
-            this.startDatePdfXml.Location = new System.Drawing.Point(141, 26);
+            this.startDatePdfXml.Location = new System.Drawing.Point(87, 19);
             this.startDatePdfXml.Name = "startDatePdfXml";
-            this.startDatePdfXml.Size = new System.Drawing.Size(148, 20);
+            this.startDatePdfXml.Size = new System.Drawing.Size(220, 20);
             this.startDatePdfXml.TabIndex = 1;
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox2.Controls.Add(this.ToXML);
             this.groupBox2.Controls.Add(this.toPDF);
             this.groupBox2.Controls.Add(this.exportPdfXml);
@@ -138,7 +141,7 @@
             this.groupBox2.Controls.Add(this.startDatePdfXml);
             this.groupBox2.Location = new System.Drawing.Point(12, 137);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(326, 184);
+            this.groupBox2.Size = new System.Drawing.Size(342, 184);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Problems 3, 4";
@@ -146,7 +149,7 @@
             // ToXML
             // 
             this.ToXML.AutoSize = true;
-            this.ToXML.Location = new System.Drawing.Point(32, 104);
+            this.ToXML.Location = new System.Drawing.Point(32, 115);
             this.ToXML.Name = "ToXML";
             this.ToXML.Size = new System.Drawing.Size(275, 17);
             this.ToXML.TabIndex = 8;
@@ -157,7 +160,7 @@
             // toPDF
             // 
             this.toPDF.AutoSize = true;
-            this.toPDF.Location = new System.Drawing.Point(32, 80);
+            this.toPDF.Location = new System.Drawing.Point(32, 92);
             this.toPDF.Name = "toPDF";
             this.toPDF.Size = new System.Drawing.Size(228, 17);
             this.toPDF.TabIndex = 7;
@@ -167,7 +170,7 @@
             // 
             // exportPdfXml
             // 
-            this.exportPdfXml.Location = new System.Drawing.Point(69, 127);
+            this.exportPdfXml.Location = new System.Drawing.Point(6, 155);
             this.exportPdfXml.Name = "exportPdfXml";
             this.exportPdfXml.Size = new System.Drawing.Size(157, 23);
             this.exportPdfXml.TabIndex = 6;
@@ -177,15 +180,15 @@
             // 
             // endDatePdfXml
             // 
-            this.endDatePdfXml.Location = new System.Drawing.Point(141, 52);
+            this.endDatePdfXml.Location = new System.Drawing.Point(87, 58);
             this.endDatePdfXml.Name = "endDatePdfXml";
-            this.endDatePdfXml.Size = new System.Drawing.Size(147, 20);
+            this.endDatePdfXml.Size = new System.Drawing.Size(220, 20);
             this.endDatePdfXml.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 58);
+            this.label2.Location = new System.Drawing.Point(29, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 4;
@@ -194,7 +197,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 32);
+            this.label1.Location = new System.Drawing.Point(29, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 3;
@@ -205,16 +208,17 @@
             this.groupBox3.Controls.Add(this.xmlToMssql);
             this.groupBox3.Controls.Add(this.textBox2);
             this.groupBox3.Controls.Add(this.XMLBrowse);
-            this.groupBox3.Location = new System.Drawing.Point(374, 12);
+            this.groupBox3.Location = new System.Drawing.Point(360, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(326, 119);
+            this.groupBox3.Size = new System.Drawing.Size(340, 119);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Problem 6";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // xmlToMssql
             // 
-            this.xmlToMssql.Location = new System.Drawing.Point(22, 74);
+            this.xmlToMssql.Location = new System.Drawing.Point(6, 90);
             this.xmlToMssql.Name = "xmlToMssql";
             this.xmlToMssql.Size = new System.Drawing.Size(75, 23);
             this.xmlToMssql.TabIndex = 2;
@@ -225,16 +229,16 @@
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(23, 51);
+            this.textBox2.Location = new System.Drawing.Point(6, 48);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(281, 20);
+            this.textBox2.Size = new System.Drawing.Size(247, 20);
             this.textBox2.TabIndex = 1;
             // 
             // XMLBrowse
             // 
-            this.XMLBrowse.Location = new System.Drawing.Point(23, 20);
+            this.XMLBrowse.Location = new System.Drawing.Point(259, 48);
             this.XMLBrowse.Name = "XMLBrowse";
-            this.XMLBrowse.Size = new System.Drawing.Size(75, 23);
+            this.XMLBrowse.Size = new System.Drawing.Size(75, 20);
             this.XMLBrowse.TabIndex = 0;
             this.XMLBrowse.Text = "Browse ...";
             this.XMLBrowse.UseVisualStyleBackColor = true;
@@ -242,7 +246,7 @@
             // 
             // mssqlToMysql
             // 
-            this.mssqlToMysql.Location = new System.Drawing.Point(22, 31);
+            this.mssqlToMysql.Location = new System.Drawing.Point(6, 44);
             this.mssqlToMysql.Name = "mssqlToMysql";
             this.mssqlToMysql.Size = new System.Drawing.Size(156, 23);
             this.mssqlToMysql.TabIndex = 4;
@@ -253,31 +257,32 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.mssqlToMysql);
-            this.groupBox4.Location = new System.Drawing.Point(374, 138);
+            this.groupBox4.Location = new System.Drawing.Point(360, 138);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 73);
+            this.groupBox4.Size = new System.Drawing.Size(340, 73);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Problem 7";
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button1);
-            this.groupBox5.Location = new System.Drawing.Point(374, 217);
+            this.groupBox5.Controls.Add(this.sqliteMysql);
+            this.groupBox5.Location = new System.Drawing.Point(360, 217);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(326, 76);
+            this.groupBox5.Size = new System.Drawing.Size(340, 104);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Problem 8";
             // 
-            // button1
+            // sqliteMysql
             // 
-            this.button1.Location = new System.Drawing.Point(95, 37);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Execute";
-            this.button1.UseVisualStyleBackColor = true;
+            this.sqliteMysql.Location = new System.Drawing.Point(6, 75);
+            this.sqliteMysql.Name = "sqliteMysql";
+            this.sqliteMysql.Size = new System.Drawing.Size(75, 23);
+            this.sqliteMysql.TabIndex = 0;
+            this.sqliteMysql.Text = "Execute";
+            this.sqliteMysql.UseVisualStyleBackColor = true;
+            this.sqliteMysql.Click += new System.EventHandler(this.sqliteMysql_Click);
             // 
             // groupBox6
             // 
@@ -288,14 +293,14 @@
             this.groupBox6.Controls.Add(this.startDateJSON);
             this.groupBox6.Location = new System.Drawing.Point(12, 327);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(326, 143);
+            this.groupBox6.Size = new System.Drawing.Size(342, 103);
             this.groupBox6.TabIndex = 7;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Problem 5";
             // 
             // toJSONMongo
             // 
-            this.toJSONMongo.Location = new System.Drawing.Point(69, 92);
+            this.toJSONMongo.Location = new System.Drawing.Point(6, 74);
             this.toJSONMongo.Name = "toJSONMongo";
             this.toJSONMongo.Size = new System.Drawing.Size(157, 23);
             this.toJSONMongo.TabIndex = 4;
@@ -306,7 +311,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 51);
+            this.label4.Location = new System.Drawing.Point(26, 45);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 3;
@@ -315,7 +320,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 26);
+            this.label3.Location = new System.Drawing.Point(26, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 2;
@@ -323,21 +328,21 @@
             // 
             // endDateJSON
             // 
-            this.endDateJSON.Location = new System.Drawing.Point(142, 45);
+            this.endDateJSON.Location = new System.Drawing.Point(87, 45);
             this.endDateJSON.Name = "endDateJSON";
-            this.endDateJSON.Size = new System.Drawing.Size(146, 20);
+            this.endDateJSON.Size = new System.Drawing.Size(220, 20);
             this.endDateJSON.TabIndex = 1;
             // 
             // startDateJSON
             // 
-            this.startDateJSON.Location = new System.Drawing.Point(141, 19);
+            this.startDateJSON.Location = new System.Drawing.Point(87, 13);
             this.startDateJSON.Name = "startDateJSON";
-            this.startDateJSON.Size = new System.Drawing.Size(148, 20);
+            this.startDateJSON.Size = new System.Drawing.Size(220, 20);
             this.startDateJSON.TabIndex = 0;
             // 
             // chooseDir
             // 
-            this.chooseDir.Location = new System.Drawing.Point(19, 22);
+            this.chooseDir.Location = new System.Drawing.Point(259, 74);
             this.chooseDir.Name = "chooseDir";
             this.chooseDir.Size = new System.Drawing.Size(75, 23);
             this.chooseDir.TabIndex = 8;
@@ -348,18 +353,18 @@
             // textBox3
             // 
             this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(19, 51);
+            this.textBox3.Location = new System.Drawing.Point(6, 76);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(285, 20);
+            this.textBox3.Size = new System.Drawing.Size(247, 20);
             this.textBox3.TabIndex = 9;
             // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.textBox3);
             this.groupBox7.Controls.Add(this.chooseDir);
-            this.groupBox7.Location = new System.Drawing.Point(374, 327);
+            this.groupBox7.Location = new System.Drawing.Point(360, 327);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(326, 100);
+            this.groupBox7.Size = new System.Drawing.Size(340, 103);
             this.groupBox7.TabIndex = 10;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Choose Output Folder";
@@ -369,7 +374,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DB_TeamCapri.Properties.Resources.FormBackground;
-            this.ClientSize = new System.Drawing.Size(722, 554);
+            this.ClientSize = new System.Drawing.Size(712, 554);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -424,7 +429,7 @@
         private System.Windows.Forms.CheckBox oracleToMssqlCheckbox;
         private System.Windows.Forms.Button insertIntoMssql;
         private System.Windows.Forms.Button xmlToMssql;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button sqliteMysql;
         private System.Windows.Forms.Button chooseDir;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox groupBox7;

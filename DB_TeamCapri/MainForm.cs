@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DB_TeamCapri
+﻿namespace DB_TeamCapri
 {
+    using SalesSystem.MySQL.Data;
+    using System;
+    using System.Drawing;
+    using System.IO;
+    using System.Linq;
+    using System.Windows.Forms;
+    using Taxes.SQLite.Data;
+    using static Problems.XmlWriter;
+
     public partial class MainForm : Form
     {
         public String ZipFilePath;
@@ -20,6 +19,9 @@ namespace DB_TeamCapri
         {
             InitializeComponent();
             SetVisualSettings();
+
+            string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\DBs";
+            AppDomain.CurrentDomain.SetData("DataDirectory", path);
         }
 
         private String createFileDialog(String fileFilter, TextBox textBox)
@@ -95,25 +97,24 @@ namespace DB_TeamCapri
         }
 
 
-        /* 
-         * --- Problems 3, 4 ---
-         */
+        // Problem(s) 3, 4 XML/PDF GENERATORS
         private void exportPdfXml_Click(object sender, EventArgs e)
         {
-            String startDate = startDatePdfXml.Value.ToString("dd-MM-yyyy");
-            String endDate = endDatePdfXml.Value.ToString("dd-MM-yyyy");
+            var startDate = startDatePdfXml.Value.ToString("dd-MM-yyyy");
+            var endDate = endDatePdfXml.Value.ToString("dd-MM-yyyy");
 
             if (toPDF.Checked)
             {
-
-                //
-
+                // TODO...GENERATE PDF
             }
             else if (ToXML.Checked)
             {
-
-                //
-
+                // GENERATE XML REPORTS BY VENDORS IN RANGE START DATE - END DATE
+                GenerateXmlReport(startDate, endDate);
+            }
+            else
+            {
+                MessageBox.Show(@"Please select PDF or XML before to generate a report.");
             }
         }
 
@@ -168,6 +169,31 @@ namespace DB_TeamCapri
                 var bm = new Bitmap(this.BackgroundImage, new Size(this.Width, this.Height));
                 this.BackgroundImage = bm;
             }
+        }
+
+        private void sqliteMysql_Click(object sender, EventArgs e)
+        {
+            var taxes = new TaxesEntities();
+            var mysql = new MySQLContext(); 
+            
+            //var c1 = this.mysql.Towns.Count();
+            var c = taxes.ProductTaxes.Count();
+            var c2 = mysql.Towns.Count();
+            textBox3.Text = (c+c2).ToString();
+            //var sales = mysql.Sales.Select(s => new
+            //{
+                
+            //});
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
