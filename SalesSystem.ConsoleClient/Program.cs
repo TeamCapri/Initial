@@ -29,7 +29,6 @@ namespace SalesSystem.ConsoleClient
                     Console.WriteLine("Sale: Id: {0}, ProductId: {1}", sale.Id, sale.ProductId);
                 }
             }
-
         }
         }
     }

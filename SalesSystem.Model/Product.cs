@@ -18,6 +18,7 @@ namespace SalesSystem.Model
         [Required]
         public decimal Price { get; set; }
         public int VendorId { get; set; } // nav prop in vendors is setpub
+        public Vendor Vendor { get; set; }
         public Measure Measure { get; set; }
 
         public virtual ICollection<Sale> Sales

@@ -13,13 +13,13 @@
      //   [ForeignKey("Product")]
         public int ProductId { get; set; } //nav prop in products is added
         [Required]
-        public double Quantity { get; set; }
+        public decimal Quantity { get; set; }
         [Required]
         public decimal Price { get; set; }
         [Required]
         public decimal ItemSum { get; set; }
       
-        //public Product Product { get; set; }
+        public Product Product { get; set; }
         //public Supermarket Supermarket { get; set; }
      
         }

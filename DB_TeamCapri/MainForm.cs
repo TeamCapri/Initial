@@ -1,4 +1,6 @@
-﻿using SalesSystem.MySQL.Data;
+﻿using OfficeOpenXml;
+using OfficeOpenXml.Style;
+using SalesSystem.MySQL.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -152,7 +154,14 @@ namespace DB_TeamCapri
             {
 
                 //
+                var c = new SalesSystem.Data.SalesSystemContext();
+                c.Towns.Add(new SalesSystem.Model.Town()
+                {
+                    Name = "aaaaaaaa"
+                });
+                c.SaveChanges();
 
+                //textBox3.Text = c1.ToString();
             }
         }
 
@@ -178,19 +187,11 @@ namespace DB_TeamCapri
 
         private void sqliteMysql_Click(object sender, EventArgs e)
         {
-            var taxes = new TaxesEntities();
-            var mysql = new MySQLContext(); 
-            
-            //var c1 = this.mysql.Towns.Count();
-            var c = taxes.ProductTaxes.Count();
-            var c2 = mysql.Towns.Count();
-            textBox3.Text = (c+c2).ToString();
-            //var sales = mysql.Sales.Select(s => new
-            //{
-                
-            //});
+            var sqlite = new TaxesEntities();
+            var mysql = new MySQLContext();
+
+            Problems.SQLiteMySQLExport export = new Problems.SQLiteMySQLExport(mysql, sqlite);
+            export.exportXLSX(this.outputDir);
         }
-
-
     }
 }
