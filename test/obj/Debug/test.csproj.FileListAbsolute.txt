@@ -1,0 +1,14 @@
+C:\Users\Nadia\Desktop\trunk\test\bin\Debug\test.exe.config
+C:\Users\Nadia\Desktop\trunk\test\bin\Debug\test.exe
+C:\Users\Nadia\Desktop\trunk\test\bin\Debug\test.pdb
+C:\Users\Nadia\Desktop\trunk\test\bin\Debug\EntityFramework.dll
+C:\Users\Nadia\Desktop\trunk\test\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nadia\Desktop\trunk\test\bin\Debug\MSSQLtoMYSQL.exe
+C:\Users\Nadia\Desktop\trunk\test\bin\Debug\MSSQLtoMYSQL.pdb
+C:\Users\Nadia\Desktop\trunk\test\bin\Debug\EntityFramework.xml
+C:\Users\Nadia\Desktop\trunk\test\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nadia\Desktop\trunk\test\obj\Debug\test.csprojResolveAssemblyReference.cache
+C:\Users\Nadia\Desktop\trunk\test\obj\Debug\test.exe
+C:\Users\Nadia\Desktop\trunk\test\obj\Debug\test.pdb
+C:\Users\Nadia\Desktop\trunk\test\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\Nadia\Desktop\trunk\test\bin\Debug\MySql.Data.dll
