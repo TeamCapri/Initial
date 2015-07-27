@@ -7,23 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace test
+namespace ReplicateOracleDb
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class AdStatuses
+    public partial class VENDOR
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AdStatuses()
+        public VENDOR()
         {
-            this.Ads = new HashSet<Ads>();
+            this.PRODUCTS = new HashSet<PRODUCT>();
         }
     
-        public int Id { get; set; }
-        public string Status { get; set; }
+        public decimal ID { get; set; }
+        public string NAME { get; set; }
+        public string BULSTAT { get; set; }
+        public string ADDRESS { get; set; }
+        public Nullable<decimal> TOWN_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ads> Ads { get; set; }
+        public virtual ICollection<PRODUCT> PRODUCTS { get; set; }
+        public virtual TOWN TOWN { get; set; }
     }
 }

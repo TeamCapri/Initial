@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace test
+namespace ReplicateOracleDb
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AdsEntities : DbContext
+    public partial class OracleEntities : DbContext
     {
-        public AdsEntities()
-            : base("name=AdsEntities")
+        public OracleEntities()
+            : base("name=OracleEntities")
         {
         }
     
@@ -25,12 +25,9 @@ namespace test
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Ads> Ads { get; set; }
-        public virtual DbSet<AdStatuses> AdStatuses { get; set; }
-        public virtual DbSet<AspNetRoles> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
-        public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<Towns> Towns { get; set; }
+        public virtual DbSet<MEASURE> MEASURES { get; set; }
+        public virtual DbSet<PRODUCT> PRODUCTS { get; set; }
+        public virtual DbSet<TOWN> TOWNS { get; set; }
+        public virtual DbSet<VENDOR> VENDORS { get; set; }
     }
 }

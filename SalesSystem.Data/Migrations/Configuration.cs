@@ -16,6 +16,7 @@
 
         protected override void Seed(SalesSystemContext context)
         {
+            /* THE DATA IS COMMING FROM ORACLE
             // ADD TOWNS
             if (!context.Towns.Any())
             {
@@ -99,7 +100,7 @@
 
                 // SAVE SALES
                 context.SaveChanges();
-            }
+            }*/
         }
     }
 }

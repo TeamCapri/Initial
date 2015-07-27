@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OracleModel.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MEASURES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRODUCTS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="200" Nullable="false" />
+          <Property Name="PRICE" Type="number" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="MESURE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="VENDOR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TOWNS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VENDORS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar2" MaxLength="50" Nullable="false" />
+          <Property Name="BULSTAT" Type="nvarchar2" MaxLength="13" Nullable="false" />
+          <Property Name="ADDRESS" Type="nvarchar2" MaxLength="200" />
+          <Property Name="TOWN_ID" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <Association Name="FK_VENDORS_TOWN">
+          <End Role="TOWNS" Type="Self.TOWNS" Multiplicity="0..1" />
+          <End Role="VENDORS" Type="Self.VENDORS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOWNS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VENDORS">
+              <PropertyRef Name="TOWN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTS_MEASURES_FK1">
+          <End Role="MEASURES" Type="Self.MEASURES" Multiplicity="1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEASURES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="MESURE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTS_VENDORS_FK21">
+          <End Role="VENDORS" Type="Self.VENDORS" Multiplicity="1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDORS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="VENDOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OracleModelStoreContainer">
+          <EntitySet Name="MEASURES" EntityType="Self.MEASURES" Schema="PRODUCTSYSTEM" store:Type="Tables" />
+          <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCTS" Schema="PRODUCTSYSTEM" store:Type="Tables" />
+          <EntitySet Name="TOWNS" EntityType="Self.TOWNS" Schema="PRODUCTSYSTEM" store:Type="Tables" />
+          <EntitySet Name="VENDORS" EntityType="Self.VENDORS" Schema="PRODUCTSYSTEM" store:Type="Tables" />
+          <AssociationSet Name="FK_VENDORS_TOWN" Association="Self.FK_VENDORS_TOWN">
+            <End Role="TOWNS" EntitySet="TOWNS" />
+            <End Role="VENDORS" EntitySet="VENDORS" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTS_MEASURES_FK1" Association="Self.PRODUCTS_MEASURES_FK1">
+            <End Role="MEASURES" EntitySet="MEASURES" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTS_VENDORS_FK21" Association="Self.PRODUCTS_VENDORS_FK21">
+            <End Role="VENDORS" EntitySet="VENDORS" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OracleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MEASURE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PRODUCTS" Relationship="Self.PRODUCTS_MEASURES_FK1" FromRole="MEASURES" ToRole="PRODUCTS" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRICE" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="MESURE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="VENDOR_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="MEASURE" Relationship="Self.PRODUCTS_MEASURES_FK1" FromRole="PRODUCTS" ToRole="MEASURES" />
+          <NavigationProperty Name="VENDOR" Relationship="Self.PRODUCTS_VENDORS_FK21" FromRole="PRODUCTS" ToRole="VENDORS" />
+        </EntityType>
+        <EntityType Name="TOWN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="VENDORS" Relationship="Self.FK_VENDORS_TOWN" FromRole="TOWNS" ToRole="VENDORS" />
+        </EntityType>
+        <EntityType Name="VENDOR">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BULSTAT" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="TOWN_ID" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="PRODUCTS" Relationship="Self.PRODUCTS_VENDORS_FK21" FromRole="VENDORS" ToRole="PRODUCTS" />
+          <NavigationProperty Name="TOWN" Relationship="Self.FK_VENDORS_TOWN" FromRole="VENDORS" ToRole="TOWNS" />
+        </EntityType>
+        <Association Name="PRODUCTS_MEASURES_FK1">
+          <End Role="MEASURES" Type="Self.MEASURE" Multiplicity="1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEASURES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="MESURE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTS_VENDORS_FK21">
+          <End Role="VENDORS" Type="Self.VENDOR" Multiplicity="1" />
+          <End Role="PRODUCTS" Type="Self.PRODUCT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VENDORS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODUCTS">
+              <PropertyRef Name="VENDOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VENDORS_TOWN">
+          <End Role="TOWNS" Type="Self.TOWN" Multiplicity="0..1" />
+          <End Role="VENDORS" Type="Self.VENDOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TOWNS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VENDORS">
+              <PropertyRef Name="TOWN_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OracleEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MEASURES" EntityType="Self.MEASURE" />
+          <EntitySet Name="PRODUCTS" EntityType="Self.PRODUCT" />
+          <EntitySet Name="TOWNS" EntityType="Self.TOWN" />
+          <EntitySet Name="VENDORS" EntityType="Self.VENDOR" />
+          <AssociationSet Name="PRODUCTS_MEASURES_FK1" Association="Self.PRODUCTS_MEASURES_FK1">
+            <End Role="MEASURES" EntitySet="MEASURES" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTS_VENDORS_FK21" Association="Self.PRODUCTS_VENDORS_FK21">
+            <End Role="VENDORS" EntitySet="VENDORS" />
+            <End Role="PRODUCTS" EntitySet="PRODUCTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VENDORS_TOWN" Association="Self.FK_VENDORS_TOWN">
+            <End Role="TOWNS" EntitySet="TOWNS" />
+            <End Role="VENDORS" EntitySet="VENDORS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OracleModelStoreContainer" CdmEntityContainer="OracleEntities">
+          <EntitySetMapping Name="MEASURES">
+            <EntityTypeMapping TypeName="OracleModel.MEASURE">
+              <MappingFragment StoreEntitySet="MEASURES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTS">
+            <EntityTypeMapping TypeName="OracleModel.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCTS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="MESURE_ID" ColumnName="MESURE_ID" />
+                <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TOWNS">
+            <EntityTypeMapping TypeName="OracleModel.TOWN">
+              <MappingFragment StoreEntitySet="TOWNS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VENDORS">
+            <EntityTypeMapping TypeName="OracleModel.VENDOR">
+              <MappingFragment StoreEntitySet="VENDORS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="BULSTAT" ColumnName="BULSTAT" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="TOWN_ID" ColumnName="TOWN_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -7,17 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace test
+namespace ReplicateOracleDb
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class PRODUCT
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public decimal ID { get; set; }
+        public string NAME { get; set; }
+        public decimal PRICE { get; set; }
+        public decimal MESURE_ID { get; set; }
+        public decimal VENDOR_ID { get; set; }
+    
+        public virtual MEASURE MEASURE { get; set; }
+        public virtual VENDOR VENDOR { get; set; }
     }
 }
