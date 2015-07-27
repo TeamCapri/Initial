@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarket.Data", "Supermarket.Data\Supermarket.Data.csproj", "{8CA1CA8F-6548-4B29-ABD1-A7F7FB2E8776}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Supermarket.Client", "Supermarket.Client\Supermarket.Client.csproj", "{B931B923-357C-4CB7-A287-92A72D8E4412}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CA1CA8F-6548-4B29-ABD1-A7F7FB2E8776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CA1CA8F-6548-4B29-ABD1-A7F7FB2E8776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CA1CA8F-6548-4B29-ABD1-A7F7FB2E8776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CA1CA8F-6548-4B29-ABD1-A7F7FB2E8776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B931B923-357C-4CB7-A287-92A72D8E4412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B931B923-357C-4CB7-A287-92A72D8E4412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B931B923-357C-4CB7-A287-92A72D8E4412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B931B923-357C-4CB7-A287-92A72D8E4412}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
