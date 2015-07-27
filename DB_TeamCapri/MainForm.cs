@@ -13,8 +13,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Taxes.SQLite.Data;
 
-namespace DB_TeamCapri
+﻿namespace DB_TeamCapri
 {
+    using SalesSystem.MySQL.Data;
+    using System;
+    using System.Drawing;
+    using System.IO;
+    using System.Linq;
+    using System.Windows.Forms;
+    using Taxes.SQLite.Data;
+    using Problems;
+
     public partial class MainForm : Form
     {
         public String ZipFilePath;
@@ -103,25 +112,25 @@ namespace DB_TeamCapri
         }
 
 
-        /* 
-         * --- Problems 3, 4 ---
-         */
+        // Problem(s) 3, 4 XML/PDF GENERATORS
         private void exportPdfXml_Click(object sender, EventArgs e)
         {
-            String startDate = startDatePdfXml.Value.ToString("dd-MM-yyyy");
-            String endDate = endDatePdfXml.Value.ToString("dd-MM-yyyy");
+            var startDate = startDatePdfXml.Value.ToString("dd-MM-yyyy");
+            var endDate = endDatePdfXml.Value.ToString("dd-MM-yyyy");
 
             if (toPDF.Checked)
             {
-
-                //
-
+                // TODO...GENERATE PDF
             }
             else if (ToXML.Checked)
             {
-
-                //
-
+                // GENERATE XML REPORTS BY VENDORS IN RANGE START DATE - END DATE
+                XmlWriter xml = new XmlWriter();
+                xml.GenerateXmlReport(startDate, endDate, this.outputDir);
+            }
+            else
+            {
+                MessageBox.Show(@"Please select PDF or XML before to generate a report.");
             }
         }
 
@@ -192,6 +201,16 @@ namespace DB_TeamCapri
 
             Problems.SQLiteMySQLExport export = new Problems.SQLiteMySQLExport(mysql, sqlite);
             export.exportXLSX(this.outputDir);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

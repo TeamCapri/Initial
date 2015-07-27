@@ -1,5 +1,5 @@
 ﻿namespace SalesSystem.Model
-    {
+{
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Collections.Generic;
@@ -14,16 +14,17 @@
         }
 
         public int Id { get; set; }
-        [MaxLength (60)]
+        [MaxLength(60)]
         public string Name { get; set; }
         [Required]
         [MaxLength(100)]
-        [Index (IsUnique = true)]
+        [Index(IsUnique = true)]
         public string Location { get; set; }
+
         public virtual ICollection<Sale> Sales
-            {
+        {
             get { return this.sales; }
             set { this.sales = value; }
-            }
         }
     }
+}

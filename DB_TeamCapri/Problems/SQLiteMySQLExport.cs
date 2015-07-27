@@ -41,7 +41,7 @@ namespace DB_TeamCapri.Problems
             }).OrderBy(s => s.vendor).ToList();
 
             this.index = 2;
-            string file = filePath + "\\report " + DateTime.Now.ToString("dd-MMM-yyyy HH-mm-ss") + ".xlsx";
+            string file = filePath + Path.DirectorySeparatorChar + "report " + DateTime.Now.ToString("dd-MMM-yyyy HH-mm-ss") + ".xlsx";
             ExcelWorksheet ws = createXLSX(file);
 
             var vendors = sales.Select(s => s.vendor).Distinct();
