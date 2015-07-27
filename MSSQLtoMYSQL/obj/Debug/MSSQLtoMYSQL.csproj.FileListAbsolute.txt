@@ -1,0 +1,9 @@
+C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\bin\Debug\MSSQLtoMYSQL.exe.config
+C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\bin\Debug\MSSQLtoMYSQL.exe
+C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\bin\Debug\MSSQLtoMYSQL.pdb
+C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\bin\Debug\MySql.Data.Entity.dll
+C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\bin\Debug\MySql.Data.Entity.EF6.dll
+C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.exe
+C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.pdb
+C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\bin\Debug\EntityFramework.dll
+C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\bin\Debug\EntityFramework.xml

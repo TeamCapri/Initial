@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="supermarket_chainModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="expenses">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="amount" Type="Decimal" Nullable="false" />
+    <Property Name="date_time" Type="DateTime" Nullable="false" />
+    <Property Name="vendor_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="vendors" Relationship="Self.expenses_ibfk_1" FromRole="expenses" ToRole="vendors" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="vendor_id" Type="Int32" Nullable="false" />
+    <Property Name="product_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="price" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="vendors" Relationship="Self.products_ibfk_1" FromRole="products" ToRole="vendors" />
+    <NavigationProperty Name="vendors_products" Relationship="Self.vendors_products_ibfk_2" FromRole="products" ToRole="vendors_products" />
+  </EntityType>
+  <EntityType Name="vendors">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="vendor_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="expenses" Relationship="Self.expenses_ibfk_1" FromRole="vendors" ToRole="expenses" />
+    <NavigationProperty Name="products" Relationship="Self.products_ibfk_1" FromRole="vendors" ToRole="products" />
+    <NavigationProperty Name="vendors_products" Relationship="Self.vendors_products_ibfk_1" FromRole="vendors" ToRole="vendors_products" />
+  </EntityType>
+  <EntityType Name="vendors_products">
+    <Key>
+      <PropertyRef Name="vendor_id" />
+      <PropertyRef Name="product_id" />
+      <PropertyRef Name="quantity" />
+      <PropertyRef Name="sale_date" />
+      <PropertyRef Name="unit_price" />
+    </Key>
+    <Property Name="vendor_id" Type="Int32" Nullable="false" />
+    <Property Name="product_id" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="sale_date" Type="DateTime" Nullable="false" />
+    <Property Name="unit_price" Type="Decimal" Nullable="false" />
+    <NavigationProperty Name="products" Relationship="Self.vendors_products_ibfk_2" FromRole="vendors_products" ToRole="products" />
+    <NavigationProperty Name="vendors" Relationship="Self.vendors_products_ibfk_1" FromRole="vendors_products" ToRole="vendors" />
+  </EntityType>
+  <Association Name="expenses_ibfk_1">
+    <End Role="vendors" Type="Self.vendors" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="expenses" Type="Self.expenses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="expenses">
+        <PropertyRef Name="vendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="products_ibfk_1">
+    <End Role="vendors" Type="Self.vendors" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="products" Type="Self.products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="products">
+        <PropertyRef Name="vendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vendors_products_ibfk_2">
+    <End Role="products" Type="Self.products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="vendors_products" Type="Self.vendors_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="vendors_products">
+        <PropertyRef Name="product_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="vendors_products_ibfk_1">
+    <End Role="vendors" Type="Self.vendors" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="vendors_products" Type="Self.vendors_products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="vendors">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="vendors_products">
+        <PropertyRef Name="vendor_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="supermarket_chainEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="expenses" EntityType="Self.expenses" />
+    <EntitySet Name="products" EntityType="Self.products" />
+    <EntitySet Name="vendors" EntityType="Self.vendors" />
+    <EntitySet Name="vendors_products" EntityType="Self.vendors_products" />
+    <AssociationSet Name="expenses_ibfk_1" Association="Self.expenses_ibfk_1">
+      <End Role="vendors" EntitySet="vendors" />
+      <End Role="expenses" EntitySet="expenses" />
+    </AssociationSet>
+    <AssociationSet Name="products_ibfk_1" Association="Self.products_ibfk_1">
+      <End Role="vendors" EntitySet="vendors" />
+      <End Role="products" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="vendors_products_ibfk_2" Association="Self.vendors_products_ibfk_2">
+      <End Role="products" EntitySet="products" />
+      <End Role="vendors_products" EntitySet="vendors_products" />
+    </AssociationSet>
+    <AssociationSet Name="vendors_products_ibfk_1" Association="Self.vendors_products_ibfk_1">
+      <End Role="vendors" EntitySet="vendors" />
+      <End Role="vendors_products" EntitySet="vendors_products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
