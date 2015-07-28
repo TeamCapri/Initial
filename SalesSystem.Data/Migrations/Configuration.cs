@@ -16,7 +16,7 @@
 
         protected override void Seed(SalesSystemContext context)
         {
-            /* THE DATA IS COMMING FROM ORACLE
+            //THE DATA IS COMMING FROM ORACLE
             // ADD TOWNS
             if (!context.Towns.Any())
             {
@@ -29,7 +29,7 @@
                 context.SaveChanges();
             }
 
-            // ADD VENDORS
+            //ADD VENDORS
             if (!context.Vendors.Any())
             {
                 context.Vendors.AddOrUpdate(v => v.BulstratUI,
@@ -39,7 +39,7 @@
                 context.SaveChanges();
             }
 
-            // ADD PRODUCTS
+            //ADD PRODUCTS
             if (!context.Products.Any())
             {
                 context.Products.AddOrUpdate(p => p.Name,
@@ -56,7 +56,7 @@
                 context.SaveChanges();
             }
 
-            // ADD SUPERMARKETS
+            //ADD SUPERMARKETS
             if (!context.Supermarkets.Any())
             {
                 context.Supermarkets.AddOrUpdate(s => s.Id,
@@ -66,7 +66,7 @@
                 context.SaveChanges();
             }
 
-            // ADD SALES
+            //ADD SALES
             if (!context.Sales.Any())
             {
                 var products = context.Products.Select(p => new { p.Id, p.Price });
@@ -89,8 +89,8 @@
                                 Quantity = 2,
                                 SupermarketId = supp.Id,
                                 ItemSum = 2 * pr.Price,
-                                // Product = context.Products.Find(pr.Id),
-                                // Supermarket = context.Supermarkets.Find(supp.Id)
+                                Product = context.Products.Find(pr.Id),
+                                Supermarket = context.Supermarkets.Find(supp.Id)
                             });
                         }
                     }
@@ -98,9 +98,9 @@
                     date = date.AddDays(1);
                 }
 
-                // SAVE SALES
+                //SAVE SALES
                 context.SaveChanges();
-            }*/
+            }
         }
     }
 }
