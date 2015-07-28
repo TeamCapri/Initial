@@ -100,7 +100,8 @@ using Taxes.SQLite.Data;
             if (oracleToMssqlCheckbox.Checked)
             {
 
-                //
+               var repl = new OracleDbReplication();
+               repl.ExecuteReplication();
 
             }
             else if (ZipFilePath != "")

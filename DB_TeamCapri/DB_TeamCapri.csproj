@@ -70,6 +70,14 @@
       <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.12.1.022\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.1.022\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -102,6 +110,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Problems\JSONExport.cs" />
+    <Compile Include="Problems\OracleDbReplication.cs" />
     <Compile Include="Problems\SQLiteMySQLExport.cs" />
     <Compile Include="Problems\XmlWriter.cs" />
     <Compile Include="Program.cs" />
@@ -145,6 +154,10 @@
     <None Include="Resources\FormBackground.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ReplicateOracleDb\ReplicateOracleDb.csproj">
+      <Project>{50d37ec3-5675-4a9d-acaf-dc32d311de6c}</Project>
+      <Name>ReplicateOracleDb</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SalesSystem.Data\SalesSystem.Data.csproj">
       <Project>{0bfb1aec-4208-48c8-b3b5-ae1626f51954}</Project>
       <Name>SalesSystem.Data</Name>

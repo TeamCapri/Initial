@@ -1,39 +1,31 @@
-﻿using System.Data.Entity.Migrations;
-using System.Linq;
-using SalesSystem.Data;
-using SalesSystem.Model;
-
-namespace ReplicateOracleDb
+﻿namespace DB_TeamCapri.Problems
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            var sqlContext = new SalesSystemContext();
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+    using ReplicateOracleDb;
+    using SalesSystem.Data;
+    using SalesSystem.Model;
 
-            ReplicateTowns(sqlContext);
-            ReplicateVendors(sqlContext);
-            ReplicateProducts(sqlContext);
-          
-         /* TESTING THE CONNECTIONS
-          * var sqlContext = new SalesSystemContext();
-          var product = sqlContext.Towns.Select(p => p.Name);
-          foreach (var p in product)
-          {
-              Console.WriteLine(p);
-          }
-          Console.WriteLine("end of sqldata print");
-            
-          var orcleContext = new OracleEntities();
-          var mesurments = orcleContext.MEASURES.Select(m => m.NAME);
-          foreach (var mes in mesurments)
-          {
-              Console.WriteLine(mes);
-          }
-            */
+    class OracleDbReplication
+    {
+        private SalesSystemContext context;
+        public SalesSystemContext Context
+        {
+            get { return this.context; }
+            set { this.context = new SalesSystemContext(); }
         }
 
-        private static void ReplicateProducts(SalesSystem.Data.SalesSystemContext sqlContext)
+        public void ExecuteReplication()
+        {
+            var context = new SalesSystemContext();
+            int count = context.Towns.Count();
+            ReplicateTowns(context);
+            ReplicateVendors(context);
+            ReplicateProducts(context);
+        }
+
+
+        private static void ReplicateProducts(SalesSystemContext sqlContext)
         {
             var oracleDb = new OracleEntities();
             var products = oracleDb.PRODUCTS.Select(p => new
@@ -98,5 +90,6 @@ namespace ReplicateOracleDb
             }
             sqlContext.SaveChanges();
         }
+
     }
 }

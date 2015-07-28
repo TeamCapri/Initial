@@ -82,7 +82,6 @@
     <Compile Include="PRODUCT.cs">
       <DependentUpon>OracleDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TOWN.cs">
       <DependentUpon>OracleDb.tt</DependentUpon>
@@ -123,10 +122,12 @@
       <DependentUpon>OracleDb.edmx</DependentUpon>
       <LastGenOutput>OracleDb.cs</LastGenOutput>
     </Content>
+    <Content Include="Resources\Oracle_ProductSystem_export.sql" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
