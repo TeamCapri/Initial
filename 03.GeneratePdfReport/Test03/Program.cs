@@ -92,6 +92,7 @@ namespace Test03
                 mainTable.AddCell(grandTotalCell);
 
                 pdfDocument.Add(mainTable);
+                pdfDocument.Close();
 
                 pdfWriter.Close();   
             }
