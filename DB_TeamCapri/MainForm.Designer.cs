@@ -59,6 +59,8 @@
             this.chooseDir = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.toJSONReports = new System.Windows.Forms.CheckBox();
+            this.toMongoDB = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -286,6 +288,8 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.toMongoDB);
+            this.groupBox6.Controls.Add(this.toJSONReports);
             this.groupBox6.Controls.Add(this.toJSONMongo);
             this.groupBox6.Controls.Add(this.label4);
             this.groupBox6.Controls.Add(this.label3);
@@ -293,16 +297,16 @@
             this.groupBox6.Controls.Add(this.startDateJSON);
             this.groupBox6.Location = new System.Drawing.Point(12, 327);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(342, 103);
+            this.groupBox6.Size = new System.Drawing.Size(342, 148);
             this.groupBox6.TabIndex = 7;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Problem 5";
             // 
             // toJSONMongo
             // 
-            this.toJSONMongo.Location = new System.Drawing.Point(6, 74);
+            this.toJSONMongo.Location = new System.Drawing.Point(220, 113);
             this.toJSONMongo.Name = "toJSONMongo";
-            this.toJSONMongo.Size = new System.Drawing.Size(157, 23);
+            this.toJSONMongo.Size = new System.Drawing.Size(103, 23);
             this.toJSONMongo.TabIndex = 4;
             this.toJSONMongo.Text = "Generate";
             this.toJSONMongo.UseVisualStyleBackColor = true;
@@ -311,7 +315,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 45);
+            this.label4.Location = new System.Drawing.Point(6, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
             this.label4.TabIndex = 3;
@@ -320,7 +324,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 19);
+            this.label3.Location = new System.Drawing.Point(6, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 2;
@@ -328,16 +332,16 @@
             // 
             // endDateJSON
             // 
-            this.endDateJSON.Location = new System.Drawing.Point(87, 45);
+            this.endDateJSON.Location = new System.Drawing.Point(67, 57);
             this.endDateJSON.Name = "endDateJSON";
-            this.endDateJSON.Size = new System.Drawing.Size(220, 20);
+            this.endDateJSON.Size = new System.Drawing.Size(130, 20);
             this.endDateJSON.TabIndex = 1;
             // 
             // startDateJSON
             // 
-            this.startDateJSON.Location = new System.Drawing.Point(87, 13);
+            this.startDateJSON.Location = new System.Drawing.Point(67, 25);
             this.startDateJSON.Name = "startDateJSON";
-            this.startDateJSON.Size = new System.Drawing.Size(220, 20);
+            this.startDateJSON.Size = new System.Drawing.Size(130, 20);
             this.startDateJSON.TabIndex = 0;
             // 
             // chooseDir
@@ -364,17 +368,41 @@
             this.groupBox7.Controls.Add(this.chooseDir);
             this.groupBox7.Location = new System.Drawing.Point(360, 327);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(340, 103);
+            this.groupBox7.Size = new System.Drawing.Size(340, 115);
             this.groupBox7.TabIndex = 10;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Choose Output Folder";
+            // 
+            // toJSONReports
+            // 
+            this.toJSONReports.AutoSize = true;
+            this.toJSONReports.Checked = true;
+            this.toJSONReports.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toJSONReports.Location = new System.Drawing.Point(11, 119);
+            this.toJSONReports.Name = "toJSONReports";
+            this.toJSONReports.Size = new System.Drawing.Size(203, 17);
+            this.toJSONReports.TabIndex = 5;
+            this.toJSONReports.Text = "Generate Reports to \"JSON-Reports\"";
+            this.toJSONReports.UseVisualStyleBackColor = true;
+            // 
+            // toMongoDB
+            // 
+            this.toMongoDB.AutoSize = true;
+            this.toMongoDB.Checked = true;
+            this.toMongoDB.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toMongoDB.Location = new System.Drawing.Point(11, 94);
+            this.toMongoDB.Name = "toMongoDB";
+            this.toMongoDB.Size = new System.Drawing.Size(168, 17);
+            this.toMongoDB.TabIndex = 6;
+            this.toMongoDB.Text = "Generate reports to MongoDB";
+            this.toMongoDB.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::DB_TeamCapri.Properties.Resources.FormBackground;
-            this.ClientSize = new System.Drawing.Size(712, 554);
+            this.ClientSize = new System.Drawing.Size(712, 542);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -433,6 +461,8 @@
         private System.Windows.Forms.Button chooseDir;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.CheckBox toMongoDB;
+        private System.Windows.Forms.CheckBox toJSONReports;
     }
 }
 

@@ -140,11 +140,9 @@ using Taxes.SQLite.Data;
          */
         private void toJSONMongo_Click(object sender, EventArgs e)
         {
-            String startDate = startDateJSON.Value.ToString("dd-MM-yyyy");
-            String endDate = endDateJSON.Value.ToString("dd-MM-yyyy");
+            JSONExport jExp = new JSONExport(toJSONReports.Checked, toMongoDB.Checked);
 
-            //
-
+            jExp.exportJSONReports(startDateJSON.Value, endDateJSON.Value);
         }
 
 
