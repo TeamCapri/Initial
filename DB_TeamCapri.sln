@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Taxes.SQLite.Data", "Taxes.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReplicateOracleDb", "ReplicateOracleDb\ReplicateOracleDb.csproj", "{50D37EC3-5675-4A9D-ACAF-DC32D311DE6C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSSQLtoMYSQL", "MSSQLtoMYSQL\MSSQLtoMYSQL.csproj", "{4A26EE91-6F01-40F3-81E5-1789FD4E78EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{FAD4E814-BE85-49A9-9125-42B14275E977}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{50D37EC3-5675-4A9D-ACAF-DC32D311DE6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50D37EC3-5675-4A9D-ACAF-DC32D311DE6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50D37EC3-5675-4A9D-ACAF-DC32D311DE6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A26EE91-6F01-40F3-81E5-1789FD4E78EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A26EE91-6F01-40F3-81E5-1789FD4E78EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A26EE91-6F01-40F3-81E5-1789FD4E78EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A26EE91-6F01-40F3-81E5-1789FD4E78EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAD4E814-BE85-49A9-9125-42B14275E977}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAD4E814-BE85-49A9-9125-42B14275E977}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAD4E814-BE85-49A9-9125-42B14275E977}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAD4E814-BE85-49A9-9125-42B14275E977}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

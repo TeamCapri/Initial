@@ -7,3 +7,13 @@ C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.exe
 C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.pdb
 C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\bin\Debug\EntityFramework.dll
 C:\Users\Nadia\Desktop\trunk\MSSQLtoMYSQL\bin\Debug\EntityFramework.xml
+D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\bin\Debug\MSSQLtoMYSQL.exe.config
+D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\bin\Debug\MSSQLtoMYSQL.exe
+D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\bin\Debug\MSSQLtoMYSQL.pdb
+D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\bin\Debug\EntityFramework.dll
+D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\bin\Debug\MySql.Data.Entity.dll
+D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\bin\Debug\EntityFramework.xml
+D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.csprojResolveAssemblyReference.cache
+D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.exe
+D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.pdb

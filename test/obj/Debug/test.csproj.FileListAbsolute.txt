@@ -12,3 +12,17 @@ C:\Users\Nadia\Desktop\trunk\test\obj\Debug\test.exe
 C:\Users\Nadia\Desktop\trunk\test\obj\Debug\test.pdb
 C:\Users\Nadia\Desktop\trunk\test\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\Users\Nadia\Desktop\trunk\test\bin\Debug\MySql.Data.dll
+D:\Repository\Team-Capri\trunk\test\bin\Debug\test.exe.config
+D:\Repository\Team-Capri\trunk\test\obj\Debug\test.exe
+D:\Repository\Team-Capri\trunk\test\obj\Debug\test.pdb
+D:\Repository\Team-Capri\trunk\test\bin\Debug\test.exe
+D:\Repository\Team-Capri\trunk\test\bin\Debug\test.pdb
+D:\Repository\Team-Capri\trunk\test\bin\Debug\EntityFramework.dll
+D:\Repository\Team-Capri\trunk\test\bin\Debug\EntityFramework.SqlServer.dll
+D:\Repository\Team-Capri\trunk\test\bin\Debug\MSSQLtoMYSQL.exe
+D:\Repository\Team-Capri\trunk\test\bin\Debug\MySql.Data.dll
+D:\Repository\Team-Capri\trunk\test\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\Repository\Team-Capri\trunk\test\bin\Debug\MSSQLtoMYSQL.pdb
+D:\Repository\Team-Capri\trunk\test\bin\Debug\EntityFramework.xml
+D:\Repository\Team-Capri\trunk\test\bin\Debug\EntityFramework.SqlServer.xml
+D:\Repository\Team-Capri\trunk\test\obj\Debug\test.csprojResolveAssemblyReference.cache
