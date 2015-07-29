@@ -89,6 +89,7 @@
 
                var repl = new OracleDbReplication();
                repl.ExecuteReplication();
+               MessageBox.Show(@"Task complete.");
 
             }
             else if (ZipFilePath != "")
