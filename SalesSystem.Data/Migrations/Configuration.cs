@@ -18,6 +18,7 @@
         {
             //THE DATA IS COMMING FROM ORACLE
             // ADD TOWNS
+            /*
             if (!context.Towns.Any())
             {
                 context.Towns.AddOrUpdate(t => t.Name,
@@ -100,7 +101,7 @@
 
                 //SAVE SALES
                 context.SaveChanges();
-            }
+            }*/
         }
     }
 }

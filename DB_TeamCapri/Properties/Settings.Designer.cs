@@ -22,5 +22,20 @@ namespace DB_TeamCapri.Properties {
                 return defaultInstance;
             }
         }
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=\"Excel 12.0" +
+          " Xml;HDR=YES\";")]
+        public string ExcelReadConnectionString
+        {
+            get
+            {
+                return ((string)(this["ExcelReadConnectionString"]));
+            }
+            set
+            {
+                this["ExcelReadConnectionString"] = value;
+            }
+        }
     }
 }

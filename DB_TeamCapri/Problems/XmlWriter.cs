@@ -15,7 +15,7 @@
 
     public class XmlWriter
     {
-        public void GenerateXmlReport(string startDate, string endDate, string filePath)
+        public static void GenerateXmlReport(string startDate, string endDate)
         {
             // INIT DB
             using (var db = new SalesSystemContext())
@@ -82,7 +82,7 @@
                     // GENERATE XML
                     // XML CONFIGS
 
-                    string fileName = filePath + Path.DirectorySeparatorChar + "sales-by-vendor.xml";
+                    const string fileName = "../../sales-by-vendor.xml";
                     var encoding = Encoding.GetEncoding(@"Windows-1251");
 
                     using (var writer = new XmlTextWriter(fileName, encoding))

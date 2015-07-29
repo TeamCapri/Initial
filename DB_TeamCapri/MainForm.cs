@@ -1,19 +1,4 @@
-﻿using OfficeOpenXml;
-using OfficeOpenXml.Style;
-using SalesSystem.MySQL.Data;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Taxes.SQLite.Data;
-
-﻿namespace DB_TeamCapri
+﻿﻿namespace DB_TeamCapri
 {
     using SalesSystem.MySQL.Data;
     using System;
@@ -23,6 +8,8 @@ using Taxes.SQLite.Data;
     using System.Windows.Forms;
     using Taxes.SQLite.Data;
     using Problems;
+    using DB_TeamCapri.Problems;
+   // using static Problems.ZipToSql;
 
     public partial class MainForm : Form
     {
@@ -106,9 +93,13 @@ using Taxes.SQLite.Data;
             }
             else if (ZipFilePath != "")
             {
-
-                //
-
+                ZipToSql.MigrateData(ZipFilePath);
+             //   MigrateData(ZipFilePath);
+                MessageBox.Show(@"Task complete.");
+            }
+            else
+            {
+                MessageBox.Show(@"Firstly check Oracle to MSSQL or Browse for ZIP file please.");
             }
         }
 
@@ -125,9 +116,7 @@ using Taxes.SQLite.Data;
             }
             else if (ToXML.Checked)
             {
-                // GENERATE XML REPORTS BY VENDORS IN RANGE START DATE - END DATE
-                XmlWriter xml = new XmlWriter();
-                xml.GenerateXmlReport(startDate, endDate, this.outputDir);
+                XmlWriter.GenerateXmlReport(startDate, endDate);
             }
             else
             {
@@ -161,13 +150,11 @@ using Taxes.SQLite.Data;
             if (xmlFilePath != "")
             {
 
-                //
-                var c = new SalesSystem.Data.SalesSystemContext();
-                c.Towns.Add(new SalesSystem.Model.Town()
+                if (xmlFilePath != "")
                 {
-                    Name = "aaaaaaaa"
-                });
-                c.SaveChanges();
+                    // PARSE FILE AND PUSH DATA TO DATABASE
+                    XmlToSql.PushXmlToDb(xmlFilePath);
+                }
 
                 //textBox3.Text = c1.ToString();
             }
