@@ -84,7 +84,7 @@
 
         private void insertIntoMssql_Click(object sender, EventArgs e)
         {
-           if (string.IsNullOrWhiteSpace(ZipFilePath))
+          if (string.IsNullOrWhiteSpace(ZipFilePath) && !oracleToMssqlCheckbox.Checked)
             {
                 MessageBox.Show(@"Firstly check Oracle to MSSQL or Browse for ZIP file please.");
             }
@@ -99,6 +99,7 @@
                 else
                 {
                     ZipToSql.MigrateData(ZipFilePath);
+					 MessageBox.Show(@"Task complete.");
                 }
             }
         }
@@ -115,6 +116,7 @@
                 PDFExport pdfExp = new PDFExport();
 
                 pdfExp.GeneratePDFReport(startDatePdfXml.Value, endDatePdfXml.Value);
+				 MessageBox.Show(@"Task complete.");
             }
             else if (ToXML.Checked)
             {

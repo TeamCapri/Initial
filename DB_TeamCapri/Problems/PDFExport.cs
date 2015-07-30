@@ -44,7 +44,7 @@ namespace DB_TeamCapri.Problems
                 {
                     decimal totalSum = 0;
 
-                    PdfPCell dateHeaderCell = new PdfPCell(new Phrase("Date: " + date.Key));
+                    PdfPCell dateHeaderCell = new PdfPCell(new Phrase("Date: "  + String.Format("{0:d-MM-yyyy}", date.Key)));
                     dateHeaderCell.BackgroundColor = BaseColor.LIGHT_GRAY;
                     dateHeaderCell.Colspan = 5;
                     dateHeaderCell.HorizontalAlignment = 0;
@@ -68,7 +68,7 @@ namespace DB_TeamCapri.Problems
                         totalSum += record.Quantity * record.Price;
                     }
 
-                    PdfPCell totalSumCellTitle = new PdfPCell(new Phrase("Total sum for " + date.Key + ":"));
+                    PdfPCell totalSumCellTitle = new PdfPCell(new Phrase("Total sum for " + String.Format("{0:d-MM-yyyy}", date.Key) + ":"));
                     totalSumCellTitle.Colspan = 4;
                     totalSumCellTitle.HorizontalAlignment = 1;
 

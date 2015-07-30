@@ -23,6 +23,7 @@ namespace DB_TeamCapri.Problems
 
         public void Transferdata()
         {
+            var smysql = this.mysql.Sales.Count();
             transferTowns();
 
             transfervendors();
@@ -38,6 +39,7 @@ namespace DB_TeamCapri.Problems
 
         private void trsnaferSales()
         {
+           
             var sales = this.mssql.Sales.ToList();
             foreach (var s in sales)
             {

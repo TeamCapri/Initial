@@ -122,19 +122,19 @@
                     db.Supermarkets.Add(new Supermarket()
                     {
                         Name = supermarketName,
-                        Location = supermarketName.Replace("Supermarket", "").Trim()  // setwane na lokaciqta
+                        Location = supermarketName.Replace("Supermarket", "").Trim()  
                     });
 
                     db.SaveChanges();
                 }
 
                 var rowsCount = excelRows.Count;
-                for (int i = 2; i < rowsCount - 1; i++) // rowsCount-1 - za da se izkliuchi totala
+                for (int i = 2; i < rowsCount - 1; i++) 
                 {
                     var productName = excelRows[i][0].ToString();
                     var product = db.Products.FirstOrDefault(p => p.Name == productName);
 
-                    // pepster's code        
+                          
                     bool isAdded = false;
                     string saleDateString = Path.GetFileName(Path.GetDirectoryName(excelFilePath));
                     int supermarketId = db.Supermarkets.First(s => s.Name == supermarketName).Id;
@@ -155,9 +155,7 @@
                         }
                     }
 
-                    // end pepster's code              
-
-
+                    
                     // IF PRODUCT EXIST
 
                     if (product != null && isAdded == false)
@@ -169,16 +167,15 @@
 
                         decimal price;
                         decimal.TryParse(excelRows[i][2].ToString(), out price);
-                        //            string saleDateString = Path.GetFileName(Path.GetDirectoryName(excelFilePath)); premesteno na 141 red
-                        //            int supermarketId = db.Supermarkets.First(s => s.Name == supermarketName).Id; premesteno 142 red
-
+                      
                         sales.Add(new Sale()
                         {
                             Date = DateTime.Parse(saleDateString),
                             Product = db.Products.Find(productId),
                             Quantity = quantity,
                             Supermarket = db.Supermarkets.Find(supermarketId),
-                            Price = price
+                            Price = price,
+                            ItemSum = price*quantity
                         });
                     }
                     // ADD NEW PRODUCT

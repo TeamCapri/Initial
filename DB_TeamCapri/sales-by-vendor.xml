@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <expenses-by-month>
 	<vendor name="Nestle Bulgaria AD">
-		<expenses month="юли-2014">360,00</expenses>
+		<expenses month="юли-2015">117.50</expenses>
+	</vendor>
+	<vendor name="Serdika Ltd">
+		<expenses month="юли-2015">288.00</expenses>
 	</vendor>
 	<vendor name="Zagorka LTD.">
-		<expenses month="юли-2014">240,40</expenses>
+		<expenses month="юли-2015">757.76</expenses>
 	</vendor>
 </expenses-by-month>
