@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4A26EE91-6F01-40F3-81E5-1789FD4E78EE}</ProjectGuid>
+    <ProjectGuid>{0B985A9E-C65A-4EB2-BD17-C5C317737489}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MSSQLtoMYSQL</RootNamespace>

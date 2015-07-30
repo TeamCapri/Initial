@@ -25,7 +25,7 @@
         }
 
 
-        private static void ReplicateProducts(SalesSystemContext sqlContext)
+        private void ReplicateProducts(SalesSystemContext sqlContext)
         {
             var oracleDb = new OracleEntities();
             var products = oracleDb.PRODUCTS.Select(p => new
@@ -36,8 +36,7 @@
                 p.VENDOR_ID,
 
             });
-            if (!sqlContext.Products.Any())
-            {
+            
                 foreach (var product in products)
                 {
                     sqlContext.Products.AddOrUpdate(p => p.Name,
@@ -49,11 +48,11 @@
                     });
                 }
 
-            }
+            
             sqlContext.SaveChanges();
         }
 
-        private static void ReplicateVendors(SalesSystem.Data.SalesSystemContext sqlContext)
+        private void ReplicateVendors(SalesSystem.Data.SalesSystemContext sqlContext)
         {
             var oracleDb = new OracleEntities();
             var vendors = oracleDb.VENDORS.Select(v => new
@@ -64,30 +63,28 @@
                 v.TOWN_ID
             });
 
-            if (!sqlContext.Vendors.Any())
-            {
+            
                 foreach (var vendor in vendors)
                 {
                     sqlContext.Vendors.AddOrUpdate(v => v.BulstratUI,
                     new Vendor() { Name = vendor.NAME, Address = vendor.ADDRESS, TownId = (int)vendor.TOWN_ID, BulstratUI = vendor.BULSTAT });
                 }
                 sqlContext.SaveChanges();
-            }
+            
         }
 
-        private static void ReplicateTowns(SalesSystem.Data.SalesSystemContext sqlContext)
+        private void ReplicateTowns(SalesSystem.Data.SalesSystemContext sqlContext)
         {
             var oracleDb = new OracleEntities();
             var towns = oracleDb.TOWNS.Select(t => t.NAME).ToList();
 
-            if (!sqlContext.Towns.Any())
-            {
+            
                 foreach (var town in towns)
                 {
                     sqlContext.Towns.AddOrUpdate(t => t.Name,
                     new Town() { Name = town });
                 }
-            }
+            
             sqlContext.SaveChanges();
         }
 

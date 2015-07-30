@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB_TeamCapri", "DB_TeamCapri\DB_TeamCapri.csproj", "{C6C8C6D5-0241-4B8E-9B24-6C39FE32B702}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MySQLDBF", "MSSQLtoMYSQL\MySQLDBF.csproj", "{4A26EE91-6F01-40F3-81E5-1789FD4E78EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{FAD4E814-BE85-49A9-9125-42B14275E977}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSSQLtoMYSQL", "MSSQLtoMYSQL\MSSQLtoMYSQL.csproj", "{0B985A9E-C65A-4EB2-BD17-C5C317737489}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{FAD4E814-BE85-49A9-9125-42B14275E977}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAD4E814-BE85-49A9-9125-42B14275E977}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAD4E814-BE85-49A9-9125-42B14275E977}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B985A9E-C65A-4EB2-BD17-C5C317737489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B985A9E-C65A-4EB2-BD17-C5C317737489}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B985A9E-C65A-4EB2-BD17-C5C317737489}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B985A9E-C65A-4EB2-BD17-C5C317737489}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

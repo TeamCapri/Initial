@@ -31,7 +31,7 @@
                             // VENDRO NAME
                             var vendorName = vendor.FirstAttribute.Value;
 
-                            var vendorExpenses = vendors.Descendants("expenses");
+                            var vendorExpenses = vendor.Descendants("expenses");
 
                             // VENDOR ID
                             var vendorId = db.Vendors.FirstOrDefault(v => v.Name == vendorName).Id;
@@ -62,7 +62,7 @@
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show(e.StackTrace);
             }
         }
     }

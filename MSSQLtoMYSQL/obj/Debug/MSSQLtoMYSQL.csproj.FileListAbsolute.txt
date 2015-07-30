@@ -17,3 +17,13 @@ D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\bin\Debug\EntityFramework.xml
 D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.csprojResolveAssemblyReference.cache
 D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.exe
 D:\Repository\Team-Capri\trunk\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.pdb
+D:\Entiyframework\DB_TeamCapri\Initial\MSSQLtoMYSQL\bin\Debug\MSSQLtoMYSQL.exe.config
+D:\Entiyframework\DB_TeamCapri\Initial\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.exe
+D:\Entiyframework\DB_TeamCapri\Initial\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.pdb
+D:\Entiyframework\DB_TeamCapri\Initial\MSSQLtoMYSQL\bin\Debug\MSSQLtoMYSQL.exe
+D:\Entiyframework\DB_TeamCapri\Initial\MSSQLtoMYSQL\bin\Debug\MSSQLtoMYSQL.pdb
+D:\Entiyframework\DB_TeamCapri\Initial\MSSQLtoMYSQL\bin\Debug\EntityFramework.dll
+D:\Entiyframework\DB_TeamCapri\Initial\MSSQLtoMYSQL\bin\Debug\MySql.Data.Entity.dll
+D:\Entiyframework\DB_TeamCapri\Initial\MSSQLtoMYSQL\bin\Debug\MySql.Data.Entity.EF6.dll
+D:\Entiyframework\DB_TeamCapri\Initial\MSSQLtoMYSQL\bin\Debug\EntityFramework.xml
+D:\Entiyframework\DB_TeamCapri\Initial\MSSQLtoMYSQL\obj\Debug\MSSQLtoMYSQL.csprojResolveAssemblyReference.cache

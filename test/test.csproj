@@ -124,6 +124,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MSSQLtoMYSQL\MSSQLtoMYSQL.csproj">
+      <Project>{0b985a9e-c65a-4eb2-bd17-c5c317737489}</Project>
+      <Name>MSSQLtoMYSQL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MSSQLtoMYSQL\MySQLDBF.csproj">
       <Project>{4a26ee91-6f01-40f3-81e5-1789fd4e78ee}</Project>
       <Name>MySQLDBF</Name>

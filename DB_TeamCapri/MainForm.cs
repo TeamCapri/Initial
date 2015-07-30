@@ -186,8 +186,23 @@
             var sqlite = new TaxesEntities();
             var mysql = new MySQLContext();
 
-            Problems.SQLiteMySQLExport export = new Problems.SQLiteMySQLExport(mysql, sqlite);
-            export.exportXLSX(this.outputDir);
+            if (this.outputDir == null)
+            {
+                MessageBox.Show("Select output directory first");
+                return;
+            }
+
+            try
+            {
+                Problems.SQLiteMySQLExport export = new Problems.SQLiteMySQLExport(mysql, sqlite);
+                export.exportXLSX(this.outputDir);
+                MessageBox.Show("Reports are succesfully exported in " + this.outputDir);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
