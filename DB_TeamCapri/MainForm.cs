@@ -167,9 +167,19 @@
          */
         private void mssqlToMysql_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var mssql = new SalesSystem.Data.SalesSystemContext();
+                var mysql = new MySQLContext();
 
-            //
-
+                var problem7 = new MssqlToMysql(mysql, mssql);
+                problem7.Transferdata();
+                MessageBox.Show("Done");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+            }
         }
 
         private void SetVisualSettings()

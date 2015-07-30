@@ -20,5 +20,6 @@ namespace SalesSystem.MySQL.Data
         public virtual DbSet<Supermarket> Supermarkets { get; set; }
         public virtual DbSet<Town> Towns { get; set; }
         public virtual DbSet<Vendor> Vendors { get; set; }
+        public virtual DbSet<Expense> Expenses { get; set; }
     }
 }

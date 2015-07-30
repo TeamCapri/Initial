@@ -117,6 +117,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Problems\JSONExport.cs" />
+    <Compile Include="Problems\MssqlToMysql.cs" />
     <Compile Include="Problems\OracleDbReplication.cs" />
     <Compile Include="Problems\SQLiteMySQLExport.cs" />
     <Compile Include="Problems\XmlToSql.cs" />
