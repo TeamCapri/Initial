@@ -84,23 +84,22 @@
 
         private void insertIntoMssql_Click(object sender, EventArgs e)
         {
-            if (oracleToMssqlCheckbox.Checked)
+           if (string.IsNullOrWhiteSpace(ZipFilePath))
             {
-
-               var repl = new OracleDbReplication();
-               repl.ExecuteReplication();
-               MessageBox.Show(@"Task complete.");
-
-            }
-            else if (ZipFilePath != "")
-            {
-                ZipToSql.MigrateData(ZipFilePath);
-             //   MigrateData(ZipFilePath);
-                MessageBox.Show(@"Task complete.");
+                MessageBox.Show(@"Firstly check Oracle to MSSQL or Browse for ZIP file please.");
             }
             else
             {
-                MessageBox.Show(@"Firstly check Oracle to MSSQL or Browse for ZIP file please.");
+                if (oracleToMssqlCheckbox.Checked)
+                {
+                    var repl = new OracleDbReplication();
+                    repl.ExecuteReplication();
+                    MessageBox.Show(@"Task complete.");
+                }
+                else
+                {
+                    ZipToSql.MigrateData(ZipFilePath);
+                }
             }
         }
 
