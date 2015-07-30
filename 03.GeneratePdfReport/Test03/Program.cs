@@ -93,6 +93,7 @@ namespace Test03
 
                 pdfDocument.Add(mainTable);
                 pdfDocument.Close();
+                pdfDocument.Close();
 
                 pdfWriter.Close();   
             }

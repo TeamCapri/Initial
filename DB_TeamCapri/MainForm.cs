@@ -113,7 +113,9 @@
 
             if (toPDF.Checked)
             {
-                // TODO...GENERATE PDF
+                PDFExport pdfExp = new PDFExport();
+
+                pdfExp.GeneratePDFReport(startDatePdfXml.Value, endDatePdfXml.Value);
             }
             else if (ToXML.Checked)
             {

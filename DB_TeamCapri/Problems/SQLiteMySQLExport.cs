@@ -56,7 +56,8 @@ namespace DB_TeamCapri.Problems
                     addTableContent(ws, product, tax);
                 }
 
-                createTableFooter(ws, startRow);
+                decimal vendorExpenses = this.mySql.Expenses.Where(t => t.Vendor.Name == v).GroupBy(g => g.Vendor.Name).Select(s => s.Sum(a => a.Total)).FirstOrDefault();
+                createTableFooter(ws, startRow, vendorExpenses);
 
                 createTableBorder(ws, startRow);
                 index += 2;
@@ -73,7 +74,7 @@ namespace DB_TeamCapri.Problems
             ws.Cells["C" + startRow + ":H" + index].Style.Border.Right.Style = ExcelBorderStyle.Medium;
         }
 
-        private void createTableFooter(ExcelWorksheet ws, int startRow)
+        private void createTableFooter(ExcelWorksheet ws, int startRow, decimal expenses)
         {
             ws.Cells["C" + index + ":E" + index].Merge = true;
             ws.Cells["C" + index].Value = "Total";
@@ -81,6 +82,21 @@ namespace DB_TeamCapri.Problems
             ws.Cells["F" + index].Formula = string.Format("=SUM(F" + (startRow + 2) + ":F" + (index - 1) + ")");
             ws.Cells["G" + index].Formula = string.Format("=SUM(G" + (startRow + 2) + ":G" + (index - 1) + ")");
             ws.Cells["H" + index].Formula = string.Format("=SUM(H" + (startRow + 2) + ":H" + (index - 1) + ")");
+            this.index++;
+            ws.Cells["C" + index + ":E" + index].Merge = true;
+            ws.Cells["C" + index].Value = "Expenses";
+            ws.Cells["C" + index].Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
+            ws.Cells["F" + index + ":H" + index].Merge = true;
+            ws.Cells["F" + index].Value = expenses;
+            this.index++;
+            ws.Cells["C" + index + ":E" + index].Merge = true;
+            ws.Cells["C" + index].Value = "Financial Result";
+            ws.Cells["C" + index].Style.HorizontalAlignment = ExcelHorizontalAlignment.Right;
+            ws.Cells["F" + index + ":H" + index].Merge = true;
+            ws.Cells["F" + index].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            ws.Cells["F" + index].Style.Font.Bold = true;
+            ws.Cells["F" + index].Style.Font.Size = 16;
+            ws.Cells["F" + index].Formula = string.Format("=H" + (this.index - 2) + "+F" + (this.index - 1));
         }
 
         private void addTableContent(ExcelWorksheet ws, dynamic product, double tax)
