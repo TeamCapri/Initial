@@ -39,12 +39,22 @@
             
                 foreach (var product in products)
                 {
+                    Measure measure = Measure.Pcs;
+                    switch ((int)product.MESURE_ID)
+                    {
+                        case 2: measure = Measure.L; break;
+                        case 3: measure = Measure.Ml; break;
+                        case 4: measure = Measure.Kg; break;
+                        case 5: measure = Measure.Gr; break;
+                    }
+                    
                     sqlContext.Products.AddOrUpdate(p => p.Name,
                     new Product()
                     {
                         Name = product.NAME,
                         Price = product.PRICE,
-                        VendorId = (int)product.VENDOR_ID
+                        VendorId = (int)product.VENDOR_ID,
+                        Measure = measure
                     });
                 }
 
