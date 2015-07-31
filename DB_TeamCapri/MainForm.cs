@@ -4,32 +4,33 @@
     using System;
     using System.Drawing;
     using System.IO;
-    using System.Linq;
     using System.Windows.Forms;
     using Taxes.SQLite.Data;
     using Problems;
-    using DB_TeamCapri.Problems;
-   // using static Problems.ZipToSql;
 
     public partial class MainForm : Form
     {
-        public String ZipFilePath;
-        public String xmlFilePath;
-        public String outputDir;
+        public string ZipFilePath;
+        public string XmlFilePath;
+        public string OutputDir;
 
         public MainForm()
         {
             InitializeComponent();
             SetVisualSettings();
 
-            string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + "\\DBs";
-            AppDomain.CurrentDomain.SetData("DataDirectory", path);
+            var directoryInfo = Directory.GetParent(Directory.GetCurrentDirectory()).Parent;
+            if (directoryInfo != null)
+            {
+                var path = directoryInfo.FullName + "\\DBs";
+                AppDomain.CurrentDomain.SetData(@"DataDirectory", path);
+            }
         }
 
-        private String createFileDialog(String fileFilter, TextBox textBox)
+        private static string CreateFileDialog(string fileFilter, Control textBox)
         {
             OpenFileDialog fdlg = new OpenFileDialog();
-            fdlg.Title = "Choose File";
+            fdlg.Title = @"Choose File";
             fdlg.InitialDirectory = @"c:\";
             fdlg.Filter = fileFilter;
             fdlg.FilterIndex = 2;
@@ -43,13 +44,13 @@
             return "";
         }
 
-        private String createFolderBrowserDialog(TextBox textBox)
+        private static string CreateFolderBrowserDialog(Control textBox)
         {
-            FolderBrowserDialog fbd = new FolderBrowserDialog();
-            if (fbd.ShowDialog() == DialogResult.OK)
+            var browseDialog = new FolderBrowserDialog();
+            if (browseDialog.ShowDialog() == DialogResult.OK)
             {
-                textBox.Text = fbd.SelectedPath;
-                return fbd.SelectedPath;
+                textBox.Text = browseDialog.SelectedPath;
+                return browseDialog.SelectedPath;
             }
 
             return "";
@@ -57,13 +58,10 @@
 
         private void chooseDir_Click(object sender, EventArgs e)
         {
-            outputDir = createFolderBrowserDialog(textBox3);
+            OutputDir = CreateFolderBrowserDialog(textBox3);
         }
 
-
-        /*
-         * --- Problem 2 ---
-         */
+        // Problem 2
         private void oracleToMssqlCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             if (oracleToMssqlCheckbox.Checked)
@@ -78,8 +76,8 @@
 
         private void ZipToMssqlBrowse_Click(object sender, EventArgs e)
         {
-            String fileFilter = "ZIP files (*.zip)|*.zip";
-            ZipFilePath = createFileDialog(fileFilter, textBox1);
+            const string fileFilter = "ZIP files (*.zip)|*.zip";
+            ZipFilePath = CreateFileDialog(fileFilter, textBox1);
         }
 
         private void insertIntoMssql_Click(object sender, EventArgs e)
@@ -104,8 +102,7 @@
             }
         }
 
-
-        // Problem(s) 3, 4 XML/PDF GENERATORS
+        // Problems 3 - 4
         private void exportPdfXml_Click(object sender, EventArgs e)
         {
             var startDate = startDatePdfXml.Value.ToString("dd-MM-yyyy");
@@ -113,7 +110,7 @@
 
             if (toPDF.Checked)
             {
-                PDFExport pdfExp = new PDFExport();
+                var pdfExp = new PDFExport();
 
                 pdfExp.GeneratePDFReport(startDatePdfXml.Value, endDatePdfXml.Value);
 				 MessageBox.Show(@"Task complete.");
@@ -128,46 +125,34 @@
             }
         }
 
-
-        /*
-         *  --- Problem 5 ---
-         */
+        // Problem 5
         private void toJSONMongo_Click(object sender, EventArgs e)
         {
-            JSONExport jExp = new JSONExport(toJSONReports.Checked, toMongoDB.Checked);
+            var jExp = new JSONExport(toJSONReports.Checked, toMongoDB.Checked);
 
             jExp.exportJSONReports(startDateJSON.Value, endDateJSON.Value);
         }
 
-
-        /*
-         * --- Problem 6 ---
-         */
+        // Problem 6
         private void XMLBrowse_Click(object sender, EventArgs e)
         {
-            String fileFilter = "XML files (*.xml)|*.xml";
-            xmlFilePath = createFileDialog(fileFilter, textBox2);
+            const string fileFilter = "XML files (*.xml)|*.xml";
+            XmlFilePath = CreateFileDialog(fileFilter, textBox2);
         }
 
         private void xmlToMssql_Click(object sender, EventArgs e)
         {
-            if (xmlFilePath != "")
+            if (string.IsNullOrWhiteSpace(XmlFilePath))
             {
-
-                if (xmlFilePath != "")
-                {
-                    // PARSE FILE AND PUSH DATA TO DATABASE
-                    XmlToSql.PushXmlToDb(xmlFilePath);
-                }
-
-                //textBox3.Text = c1.ToString();
+                MessageBox.Show(@"Please select the xml file firstly.");
+            }
+            else
+            {
+                XmlToSql.PushXmlToDb(XmlFilePath);
             }
         }
 
-
-        /*
-         * --- Problem 7 ---
-         */
+        // Problem 7
         private void mssqlToMysql_Click(object sender, EventArgs e)
         {
             try
@@ -177,7 +162,7 @@
 
                 var problem7 = new MssqlToMysql(mysql, mssql);
                 problem7.Transferdata();
-                MessageBox.Show("Done");
+                MessageBox.Show(@"Done");
             }
             catch (Exception ex)
             {
@@ -199,17 +184,17 @@
             var sqlite = new TaxesEntities();
             var mysql = new MySQLContext();
 
-            if (this.outputDir == null)
+            if (this.OutputDir == null)
             {
-                MessageBox.Show("Select output directory first");
+                MessageBox.Show(@"Select output directory first");
                 return;
             }
 
             try
             {
-                Problems.SQLiteMySQLExport export = new Problems.SQLiteMySQLExport(mysql, sqlite);
-                export.exportXLSX(this.outputDir);
-                MessageBox.Show("Reports are succesfully exported in " + this.outputDir);
+                var export = new SQLiteMySQLExport(mysql, sqlite);
+                export.exportXLSX(this.OutputDir);
+                MessageBox.Show(@"Reports are succesfully exported in " + this.OutputDir);
             }
             catch (Exception ex)
             {
